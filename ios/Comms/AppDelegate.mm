@@ -6,7 +6,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  if ([FIRApp defaultApp] == nil) {
+    if ([FIRApp defaultApp] == nil) {
     [FIRApp configure];
   }
   self.moduleName = @"Comms";
