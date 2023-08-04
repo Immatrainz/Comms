@@ -18,12 +18,56 @@
   margin-top: 0.5rem
 }
 
+.flex {
+  display: flex
+}
+
 .h-2 {
   height: 0.5rem
 }
 
 .h-10 {
   height: 2.5rem
+}
+
+.h-full {
+  height: 100%
+}
+
+.flex-col {
+  flex-direction: column
+}
+
+.content-end {
+  align-content: flex-end
+}
+
+.justify-end {
+  justify-content: flex-end
+}
+
+.justify-center {
+  justify-content: center
+}
+
+.justify-between {
+  justify-content: space-between
+}
+
+.gap-10 {
+  gap: 2.5rem
+}
+
+.place-self-end {
+  place-self: end
+}
+
+.self-end {
+  align-self: flex-end
+}
+
+.justify-self-end {
+  justify-self: end
 }
 
 .border-2 {
