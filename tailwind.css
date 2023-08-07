@@ -58,6 +58,14 @@
   gap: 2.5rem
 }
 
+.gap-1 {
+  gap: 0.25rem
+}
+
+.gap-2 {
+  gap: 0.5rem
+}
+
 .place-self-end {
   place-self: end
 }
@@ -87,6 +95,10 @@
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity))
+}
+
+.p-2 {
+  padding: 0.5rem
 }
 
 .text-lg {

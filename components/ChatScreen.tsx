@@ -3,7 +3,7 @@ import {Text, View, StyleSheet, TextInput, Button} from 'react-native';
 
 const ChatScreen = ({navigation}) => {
   return (
-    <View className="flex flex-col h-full justify-end">
+    <View className="flex flex-col h-full p-2 gap-2 justify-end">
       <Text>
         Add person's name here when mapping: Sample, map the chat from the
         database here
