@@ -38,6 +38,10 @@
   flex-direction: column
 }
 
+.flex-col-reverse {
+  flex-direction: column-reverse
+}
+
 .content-end {
   align-content: flex-end
 }
