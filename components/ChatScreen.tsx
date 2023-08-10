@@ -17,8 +17,7 @@ const ChatScreen = ({navigation}) => {
   React.useEffect(() => {
     messageRef.on('value', snapshot => {
       let data = snapshot.val();
-      const chat = Object.values(data);
-      setMessageArray(chat);
+      setMessageArray(Object.values(data));
     });
   }, []);
 
