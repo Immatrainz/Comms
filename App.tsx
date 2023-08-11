@@ -31,6 +31,9 @@ import ChatScreen from './components/ChatScreen.tsx';
 const Stack = createNativeStackNavigator();
 
 const Register = ({navigation}) => {
+  let [email, setEmail] = React.useState('');
+  let [password, setPassword] = React.useState('');
+  let [passwordCheck, setPasswordCheck] = React.useState('');
   const handleClick = () => {};
   return (
     <View>
