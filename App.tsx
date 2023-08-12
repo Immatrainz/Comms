@@ -5,29 +5,20 @@
  * @format
  */
 import React from 'react';
-import {Text, View, StyleSheet, Button, TextInput, Alert} from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  Button,
+  TextInput,
+  Alert,
+  Pressable,
+} from 'react-native';
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Login from './components/Login.tsx';
 import ChatScreen from './components/ChatScreen.tsx';
 import auth, {firebase} from '@react-native-firebase/auth';
-// const styles = StyleSheet.create({
-//   center: {
-//     alignItems: 'center',
-//   },
-// });
-
-// type GreetingProp = {
-//   name: string;
-// };
-
-// const Greeting = (props: GreetingProp) => {
-//   return (
-//     <View style={styles.center}>
-//       <Text>Welcome to Comms!</Text>
-//     </View>
-//   );
-// };
 
 const Stack = createNativeStackNavigator();
 
@@ -79,13 +70,24 @@ const Register = ({navigation}) => {
     <View>
       <Text className="bg-green-400 text-lg ">Welcome to Comms!</Text>
       {!valid && <Text className="bg-green-400 text-lg ">{errorMessage}</Text>}
-      <TextInput className="m-4 p-2 border" placeholder="Email" />
-      <TextInput className="ml-4 mr-4 mb-4 p-2 border" placeholder="Password" />
+      <TextInput
+        className="m-4 p-2 border"
+        placeholder="Email"
+        onChangeText={setEmail}
+      />
+      <TextInput
+        className="ml-4 mr-4 mb-4 p-2 border"
+        placeholder="Password"
+        onChangeText={setPassword}
+      />
       <TextInput
         className="ml-4 mr-4 mb-4 p-2 border"
         placeholder=" Confirm Password"
+        onChangeText={setPasswordCheck}
       />
-
+      <View className="flex flex-row h-10 bg-yellow-400 justify-center">
+        <Button title="Sign up" />
+      </View>
       <Button
         title="Already have an account? Login"
         onPress={() => navigation.navigate('Login')}
