@@ -18,7 +18,7 @@ import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Login from './components/Login.tsx';
 import ChatScreen from './components/ChatScreen.tsx';
-import auth, {firebase} from '@react-native-firebase/auth';
+import auth from '@react-native-firebase/auth';
 
 const Stack = createNativeStackNavigator();
 
@@ -61,15 +61,19 @@ const Register = ({navigation}) => {
     } else if (!validateEmail(email)) {
       setErrorMessage('Invalid email');
       setValid(false);
+    } else if (password !== passwordCheck) {
+      setErrorMessage('Please make sure passwords match');
+      setValid(false);
     } else {
       createUser(email, password);
+      setValid(true);
     }
   };
 
   return (
     <View>
       <Text className="bg-green-400 text-lg ">Welcome to Comms!</Text>
-      {!valid && <Text className="bg-green-400 text-lg ">{errorMessage}</Text>}
+      {!valid && <Text className="bg-red-400 text-m ">{errorMessage}</Text>}
       <TextInput
         className="m-4 p-2 border"
         placeholder="Email"
@@ -86,7 +90,7 @@ const Register = ({navigation}) => {
         onChangeText={setPasswordCheck}
       />
       <View className="flex flex-row h-10 bg-yellow-400 justify-center">
-        <Button title="Sign up" />
+        <Button title="Sign up" onPress={() => handleSignup()} />
       </View>
       <Button
         title="Already have an account? Login"
