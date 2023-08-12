@@ -5,11 +5,12 @@
  * @format
  */
 import React from 'react';
-import {Text, View, StyleSheet, Button, TextInput} from 'react-native';
+import {Text, View, StyleSheet, Button, TextInput, Alert} from 'react-native';
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Login from './components/Login.tsx';
 import ChatScreen from './components/ChatScreen.tsx';
+import auth from '@react-native-firebase/auth';
 // const styles = StyleSheet.create({
 //   center: {
 //     alignItems: 'center',
@@ -34,10 +35,51 @@ const Register = ({navigation}) => {
   let [email, setEmail] = React.useState('');
   let [password, setPassword] = React.useState('');
   let [passwordCheck, setPasswordCheck] = React.useState('');
-  const handleClick = () => {};
+  let [errorMessage, setErrorMessage] = React.useState('');
+  let [valid, setValid] = React.useState(true);
+
+  const validateEmail = email => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      );
+  };
+
+  const createUser = async (email, password) => {
+    try {
+      let response = await auth().createUserWithEmailAndPassword(
+        email,
+        password,
+      );
+      if (response && response.user) {
+        Alert.alert('Success! Account successfully created');
+      }
+    } catch (e) {
+      console.error(e.message);
+    }
+  };
+
+  const handleSignup = () => {
+    if (!email) {
+      setErrorMessage('Please enter an email');
+      setValid(false);
+      return;
+    } else if (!password || password.length < 8) {
+      setErrorMessage('Please enter a password with minimum of 8 characters');
+      setValid(false);
+      return;
+    } else if (!validateEmail(email)) {
+      setErrorMessage('Invalid email');
+      setValid(false);
+      return;
+    }
+  };
+
   return (
     <View>
       <Text className="bg-green-400 text-lg ">Welcome to Comms!</Text>
+      {!valid && <Text className="bg-green-400 text-lg ">{errorMessage}</Text>}
       <TextInput className="m-4 p-2 border" placeholder="Email" />
       <TextInput className="ml-4 mr-4 mb-4 p-2 border" placeholder="Password" />
       <TextInput
