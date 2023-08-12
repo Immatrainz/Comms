@@ -10,7 +10,7 @@ import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Login from './components/Login.tsx';
 import ChatScreen from './components/ChatScreen.tsx';
-import auth from '@react-native-firebase/auth';
+import auth, {firebase} from '@react-native-firebase/auth';
 // const styles = StyleSheet.create({
 //   center: {
 //     alignItems: 'center',
@@ -64,15 +64,14 @@ const Register = ({navigation}) => {
     if (!email) {
       setErrorMessage('Please enter an email');
       setValid(false);
-      return;
     } else if (!password || password.length < 8) {
       setErrorMessage('Please enter a password with minimum of 8 characters');
       setValid(false);
-      return;
     } else if (!validateEmail(email)) {
       setErrorMessage('Invalid email');
       setValid(false);
-      return;
+    } else {
+      createUser(email, password);
     }
   };
 
