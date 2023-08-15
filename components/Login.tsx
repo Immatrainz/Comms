@@ -9,7 +9,7 @@ const Login = ({navigation}) => {
     try {
       let response = await auth().signInWithEmailAndPassword(email, password);
       if (response && response.user) {
-        Alert.alert('Success ✅', 'Authenticated successfully');
+        Alert.alert(`Welcome ${response.user.providerData[0].email}`);
         navigation.navigate('Chats');
       }
     } catch (e) {
