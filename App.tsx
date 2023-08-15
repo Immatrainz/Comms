@@ -67,6 +67,7 @@ const Register = ({navigation}) => {
     } else {
       createUser(email, password);
       setValid(true);
+      navigation.navigate('Login');
     }
   };
 
