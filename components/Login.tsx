@@ -1,5 +1,6 @@
 import React from 'react';
 import {Text, View, StyleSheet, TextInput, Button, Alert} from 'react-native';
+import auth from '@react-native-firebase/auth';
 
 const Login = ({navigation}) => {
   let [email, setEmail] = React.useState('');
@@ -9,6 +10,7 @@ const Login = ({navigation}) => {
       let response = await auth().signInWithEmailAndPassword(email, password);
       if (response && response.user) {
         Alert.alert('Success ✅', 'Authenticated successfully');
+        navigation.navigate('Chats');
       }
     } catch (e) {
       console.error(e.message);

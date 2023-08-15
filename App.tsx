@@ -18,6 +18,7 @@ import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Login from './components/Login.tsx';
 import ChatScreen from './components/ChatScreen.tsx';
+import Chats from './components/Chats.tsx';
 import auth from '@react-native-firebase/auth';
 
 const Stack = createNativeStackNavigator();
@@ -108,6 +109,7 @@ const MyStack = () => {
       <Stack.Navigator>
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Chats" component={Chats} />
         <Stack.Screen name="Chat" component={ChatScreen} />
       </Stack.Navigator>
     </NavigationContainer>
