@@ -1,16 +1,21 @@
 import React from 'react';
 import {Text, View, StyleSheet, TextInput, Button} from 'react-native';
 import database from '@react-native-firebase/database';
+import auth from '@react-native-firebase/auth';
 
 const ChatScreen = ({navigation}) => {
   let [message, setMessage] = React.useState('');
   const [messageArray, setMessageArray] = React.useState([]);
 
   let addChat = (message: object) => {
-    database().ref('/messages').push({
-      name: 'User',
-      m: message,
-    });
+    database()
+      .ref('/messages')
+      .push({user:,
+        message: {
+          name: 'User',
+          m: message,
+        },
+      });
   };
   let messageRef = database().ref('/messages');
 
