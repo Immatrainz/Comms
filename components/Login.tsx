@@ -5,11 +5,12 @@ import auth from '@react-native-firebase/auth';
 const Login = ({navigation}) => {
   let [email, setEmail] = React.useState('');
   let [password, setPassword] = React.useState('');
-  let [user, setUser] = React.useState('');
+  let [user, setUser] = React.useState({});
 
   const signUserIn = async (email, password) => {
     try {
       let response = await auth().signInWithEmailAndPassword(email, password);
+      setUser(response);
       if (response && response.user) {
         Alert.alert(`Welcome ${response.user.providerData[0].email}`);
         navigation.navigate('Chats');
