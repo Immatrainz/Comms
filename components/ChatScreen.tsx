@@ -10,9 +10,10 @@ const ChatScreen = ({navigation}) => {
   let addChat = (message: object) => {
     database()
       .ref('/messages')
-      .push({user:,
+      .push({
+        user: 'User1',
         message: {
-          name: 'User',
+          name: 'User2',
           m: message,
         },
       });
