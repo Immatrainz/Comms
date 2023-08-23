@@ -11,7 +11,13 @@ const ChatScreen = ({navigation}) => {
     database()
       .ref('/messages')
       .push({
+        // message to the user
         user: 'User1',
+        // time and date the message was sent
+        date: '',
+        // users can toggle to like a certain message
+        like: false,
+        // who the message is going to
         message: {
           name: 'User2',
           m: message,
