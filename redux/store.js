@@ -1,7 +1,7 @@
 import {createStore, combineReducers} from 'redux';
-import placeReducer from './reducers/placeReducer';
+import loggeduser from './reducers/userReducer';
 const rootReducer = combineReducers({
-  places: placeReducer,
+  places: loggeduser,
 });
 const configureStore = () => {
   return createStore(rootReducer);
