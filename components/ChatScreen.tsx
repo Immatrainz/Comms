@@ -44,6 +44,7 @@ const ChatScreen = ({navigation}) => {
             return (
               <View key={index}>
                 <Text>
+                  Date:
                   {mess.name} : {mess.m}
                 </Text>
               </View>
