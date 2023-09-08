@@ -46,6 +46,7 @@ const ChatScreen = ({navigation}) => {
                 <Text>
                   Date:
                   {mess.name} : {mess.m}
+                  Ability to react
                 </Text>
               </View>
             );
