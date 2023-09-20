@@ -54,6 +54,7 @@ const ChatScreen = ({navigation}) => {
         ) : (
           <Text>Start a chat!</Text>
           <Text>Block</Text>
+          <Text>Mute</Text>
         )}
       </View>
       <TextInput
