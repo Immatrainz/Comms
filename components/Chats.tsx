@@ -7,6 +7,7 @@ const Chats = ({navigation}) => {
     <View className="flex flex-col">
       <View className="border border-solid border-black p-4">
         <Text>Chat for this user in the database go here</Text>
+        <Text>Ability to block the user</Text>
       </View>
       <Text>Chat for this user in the database go here</Text>
     </View>
