@@ -8,6 +8,7 @@ const Chats = ({navigation}) => {
       <View className="border border-solid border-black p-4">
         <Text>Chat for this user in the database go here</Text>
         <Text>Ability to block the user</Text>
+        <Text>Ability to mute the user</Text>
       </View>
       <Text>Chat for this user in the database go here</Text>
     </View>
