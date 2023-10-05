@@ -3,6 +3,13 @@ import {Text, View, StyleSheet, TextInput, Button} from 'react-native';
 import database from '@react-native-firebase/database';
 
 const Chats = ({navigation}) => {
+  let [chatSelected, setChatSelected] = React.useState(false);
+  let [chat, setChat] = React.useState(null);
+  let clickOnChat = () => {
+    setChatSelected(true);
+    //setChat(); add the selected chat
+    // pull the chat details from database and sent it to the chat screen for display
+  };
   return (
     <View className="flex flex-col">
       <View className="border border-solid border-black p-4">
