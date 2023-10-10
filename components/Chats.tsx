@@ -16,6 +16,7 @@ const Chats = ({navigation}) => {
         <Text>Chat for this user in the database go here</Text>
         <Text>Ability to block the user</Text>
         <Text>Ability to mute the user</Text>
+        <Text>Group this chat with other people</Text>
       </View>
       <Text>Chat for this user in the database go here</Text>
     </View>
