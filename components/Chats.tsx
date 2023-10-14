@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, View, StyleSheet, TextInput, Button} from 'react-native';
 import database from '@react-native-firebase/database';
+import ChatScreen from './ChatScreen.tsx';
 
 const Chats = ({navigation}) => {
   let [chatSelected, setChatSelected] = React.useState(false);
