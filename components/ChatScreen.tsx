@@ -25,7 +25,7 @@ const ChatScreen = ({navigation}) => {
       });
   };
   let messageRef = database().ref('/messages');
-
+  // sends the message to the database  when submitted
   React.useEffect(() => {
     messageRef.on('value', snapshot => {
       let data = snapshot.val();
