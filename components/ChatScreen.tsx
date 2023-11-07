@@ -46,7 +46,8 @@ const ChatScreen = ({navigation}) => {
                 <Text>
                   Date:
                   {mess.name} : {mess.m}
-                  Ability to react Ability to report Some other abilites
+                  Ability to react Ability to report Some other abilites going
+                  to start a new project
                 </Text>
               </View>
             );
