@@ -18,6 +18,7 @@ const ChatScreen = ({navigation}) => {
         // users can toggle to like a certain message
         like: false,
         // who the message is going to
+        // new storage method
         message: {
           name: 'User2',
           m: message,
